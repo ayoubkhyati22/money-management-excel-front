@@ -10,7 +10,7 @@ const ConsulterHistoriques = () => {
   useEffect(() => {
     console.log('base url: '+ process.env.BASE_URL);
     axios
-      .get('http://localhost:5000/all-historique')
+      .get('https://money-management-excel-back.vercel.app/all-historique')
       .then((resp) => {
         setHistoriques(resp.data.historiques);
       })
@@ -26,15 +26,15 @@ const ConsulterHistoriques = () => {
             const promises = historiques.map(async (historique) => {
               //console.log(historique._id);
               if (historique.categorie1) {
-                const response = await axios.get(`http://localhost:5000/get-category1-name/${historique.categorie1}`);
+                const response = await axios.get(`https://money-management-excel-back.vercel.app/get-category1-name/${historique.categorie1}`);
                 setCategoryNames((prevNames) => ({ ...prevNames, [historique.categorie1]: response.data.categoryName }));
               }
               if (historique.categorie2) {
-                const response = await axios.get(`http://localhost:5000/get-category2-name/${historique.categorie2}`);
+                const response = await axios.get(`https://money-management-excel-back.vercel.app/get-category2-name/${historique.categorie2}`);
                 setCategoryNames((prevNames) => ({ ...prevNames, [historique.categorie2]: response.data.categoryName }));
               }
               if (historique.categorie3) {
-                const response = await axios.get(`http://localhost:5000/get-category3-name/${historique.categorie3}`);
+                const response = await axios.get(`https://money-management-excel-back.vercel.app/get-category3-name/${historique.categorie3}`);
                 setCategoryNames((prevNames) => ({ ...prevNames, [historique.categorie3]: response.data.categoryName }));
               }
             });

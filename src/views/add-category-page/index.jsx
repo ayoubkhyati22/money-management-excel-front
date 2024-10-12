@@ -22,7 +22,7 @@ const AddCategoriePage = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/search-historiques/search', {
+      const response = await axios.get('https://money-management-excel-back.vercel.app/search-historiques/search', {
         params: searchParams,
       });
       setSearchResults(response.data.historiques);

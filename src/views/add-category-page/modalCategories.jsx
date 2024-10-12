@@ -18,9 +18,9 @@ const ModalCategories = (props) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response1 = await axios.get('http://localhost:5000/categories1');
-        const response2 = await axios.get('http://localhost:5000/categories2');
-        const response3 = await axios.get('http://localhost:5000/categories3');
+        const response1 = await axios.get('https://money-management-excel-back.vercel.app/categories1');
+        const response2 = await axios.get('https://money-management-excel-back.vercel.app/categories2');
+        const response3 = await axios.get('https://money-management-excel-back.vercel.app/categories3');
 
         if (response1 && response1.data) {
           setCategories1(response1.data.categories1);
@@ -60,7 +60,7 @@ const ModalCategories = (props) => {
   const handleSave = async () => {
     try {
       // Make an API request to update the Historique record
-      const response = await axios.put('http://localhost:5000/update-historique-categories', {
+      const response = await axios.put('https://money-management-excel-back.vercel.app/update-historique-categories', {
         historiqueId: props.idHistorique,
         categorie1: selectedCategory1 || null,
         categorie2: selectedCategory2 || null,

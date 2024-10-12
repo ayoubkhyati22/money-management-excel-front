@@ -36,7 +36,7 @@ const Result = (props) => {
 
       if (result.isConfirmed) {
         // Appel API pour sauvegarder dans la base de données
-        await axios.post('http://localhost:5000/add-historiques', transformedData);
+        await axios.post('https://money-management-excel-back.vercel.app/add-historiques', transformedData);
         Swal.fire('Saved!', '', 'success').then(()=>{window.location.reload()});
 
       } else if (result.isDenied) {
